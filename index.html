@@ -304,14 +304,16 @@
 </a>
 </div>
 </div>
-<a class="tour-cover group relative flex items-center justify-center overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30" href="https://360exp.com.br/c/espacomarmo/" rel="noopener" target="_blank" aria-label="Abrir visita virtual 360 graus do Espaço Marmô">
+<div class="tour-cover relative overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30" id="tour-embed">
+<button class="group absolute inset-0 z-10 flex w-full items-center justify-center" id="load-360-tour" type="button" aria-label="Iniciar visita virtual 360 graus nesta página">
 <img alt="Prévia da visita virtual 360 graus do Espaço Marmô" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" src="https://public.360exp.com.br/c/espacomarmo/thumbnail.jpg"/>
 <span class="absolute inset-0 bg-primary/45 transition-colors group-hover:bg-primary/30"></span>
 <span class="relative flex flex-col items-center gap-4 px-6 text-center">
 <span class="material-symbols-outlined flex h-20 w-20 items-center justify-center rounded-full border border-accent-gold bg-primary/80 text-4xl text-accent-gold backdrop-blur-sm transition-transform group-hover:scale-110" aria-hidden="true">360</span>
 <span class="bg-primary/85 px-7 py-4 font-button text-button uppercase tracking-widest text-off-white backdrop-blur-sm">Iniciar visita virtual</span>
 </span>
-</a>
+</button>
+</div>
 <p class="mt-4 text-sm text-surface-variant">Em alguns celulares, o navegador pode solicitar permissão para usar os sensores de movimento.</p>
 </div>
 </section>
@@ -645,6 +647,20 @@ document.querySelectorAll('nav details a').forEach(function (link) {
     if (menu) menu.open = false;
   });
 });
+
+const tourButton = document.getElementById('load-360-tour');
+const tourEmbed = document.getElementById('tour-embed');
+if (tourButton && tourEmbed) {
+  tourButton.addEventListener('click', function () {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://360exp.com.br/c/espacomarmo/';
+    iframe.title = 'Tour virtual 360 graus do Espaço Marmô';
+    iframe.allow = 'accelerometer; autoplay; fullscreen; gyroscope; xr-spatial-tracking';
+    iframe.allowFullscreen = true;
+    iframe.className = 'absolute inset-0 h-full w-full border-0 bg-black';
+    tourEmbed.replaceChildren(iframe);
+  }, { once: true });
+}
 
 const desktopNavLinks = Array.from(document.querySelectorAll('.desktop-nav-link'));
 const observedSections = desktopNavLinks
