@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tour 360° do Espaço Marmô</title>
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #171a17; }
+  </style>
+</head>
+<body>
+<script id="360exp_script">
+(async () => {
+  window._360exp_config_ = 'https://config.360exp.com.br/espacomarmo/';
+  window._360exp_path_ = 'https://s1.360exp.com.br/espacomarmo/';
+  window._360exp_sis_ = 'https://system.360exp.com.br/';
+
+  fetch(window._360exp_sis_ + 'source/v1.0.2/_360exp_init_.js')
+    .then((response) => response.text())
+    .then((initializer) => {
+      Function(initializer)();
+      new Promise(async (resolve) => {
+        const data = await fetch(window._360exp_sis_ + 'source/v1.0.2/360exp_v1.0.2.min.data')
+          .then((response) => response.arrayBuffer());
+        resolve(new TextDecoder().decode(window._360exp_init_(new Uint8Array(data))));
+      }).then((source) => {
+        const divider = new TextDecoder().decode(new Uint8Array([40, 34, 38, 42]));
+        const marker = new TextDecoder().decode(new Uint8Array([107, 114, 112, 58]));
+        const dividerIndex = source.indexOf(divider) - 7;
+        const markerIndex = source.indexOf(marker);
+        Function(source.slice(0, dividerIndex))(
+          { a: source.slice(dividerIndex, markerIndex) },
+          source.slice(markerIndex)
+        );
+      });
+    });
+
+  document.getElementById('360exp_script').remove();
+})();
+</script>
+</body>
+</html>
