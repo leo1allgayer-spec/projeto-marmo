@@ -206,12 +206,7 @@
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
         .masonry-item { break-inside: avoid; margin-bottom: 32px; }
-        .tour-frame {
-          width: 100%;
-          height: clamp(520px, 68vh, 760px);
-          border: 0;
-          background: #1b1c19;
-        }
+        .tour-cover { min-height: clamp(360px, 58svh, 620px); }
         summary::-webkit-details-marker { display: none; }
         @media (max-width: 767px) {
           html { scroll-padding-top: 72px; }
@@ -228,7 +223,7 @@
           .masonry-item { margin-bottom: 16px; }
           .event-card { aspect-ratio: 4 / 5; }
           .event-description { height: auto !important; opacity: 1 !important; }
-          .tour-frame { height: min(72svh, 620px); min-height: 480px; }
+          .tour-cover { min-height: min(64svh, 560px); }
           footer.py-section-gap { padding-bottom: 100px; }
         }
     </style>
@@ -309,9 +304,14 @@
 </a>
 </div>
 </div>
-<div class="relative overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30">
-<iframe allow="accelerometer; autoplay; fullscreen; gyroscope; xr-spatial-tracking" allowfullscreen class="tour-frame" loading="eager" src="tour360.html" title="Tour virtual 360 graus do Espaço Marmô"></iframe>
-</div>
+<a class="tour-cover group relative flex items-center justify-center overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30" href="https://360exp.com.br/c/espacomarmo/" rel="noopener" target="_blank" aria-label="Abrir visita virtual 360 graus do Espaço Marmô">
+<img alt="Prévia da visita virtual 360 graus do Espaço Marmô" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" src="https://public.360exp.com.br/c/espacomarmo/thumbnail.jpg"/>
+<span class="absolute inset-0 bg-primary/45 transition-colors group-hover:bg-primary/30"></span>
+<span class="relative flex flex-col items-center gap-4 px-6 text-center">
+<span class="material-symbols-outlined flex h-20 w-20 items-center justify-center rounded-full border border-accent-gold bg-primary/80 text-4xl text-accent-gold backdrop-blur-sm transition-transform group-hover:scale-110" aria-hidden="true">360</span>
+<span class="bg-primary/85 px-7 py-4 font-button text-button uppercase tracking-widest text-off-white backdrop-blur-sm">Iniciar visita virtual</span>
+</span>
+</a>
 <p class="mt-4 text-sm text-surface-variant">Em alguns celulares, o navegador pode solicitar permissão para usar os sensores de movimento.</p>
 </div>
 </section>
