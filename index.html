@@ -206,6 +206,12 @@
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
         .masonry-item { break-inside: avoid; margin-bottom: 32px; }
+        .tour-frame {
+          width: 100%;
+          height: clamp(520px, 68vh, 760px);
+          border: 0;
+          background: #1b1c19;
+        }
         summary::-webkit-details-marker { display: none; }
         @media (max-width: 767px) {
           html { scroll-padding-top: 72px; }
@@ -222,6 +228,7 @@
           .masonry-item { margin-bottom: 16px; }
           .event-card { aspect-ratio: 4 / 5; }
           .event-description { height: auto !important; opacity: 1 !important; }
+          .tour-frame { height: min(72svh, 620px); min-height: 480px; }
           footer.py-section-gap { padding-bottom: 100px; }
         }
     </style>
@@ -282,8 +289,30 @@
 <p class="font-body-lg text-body-lg text-surface-container-highest max-w-2xl mx-auto mb-10">Um espaço para eventos em meio à natureza, onde estrutura, elegância e experiências inesquecíveis se encontram.</p>
 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
 <a class="px-8 py-4 bg-forest-dark text-on-primary font-button text-button uppercase tracking-widest hover:bg-coffee-deep transition-colors w-full sm:w-auto text-center" href="#contato">Agendar uma visita</a>
-<a class="px-8 py-4 border border-accent-gold text-off-white font-button text-button uppercase tracking-widest hover:bg-accent-gold/20 transition-colors w-full sm:w-auto text-center backdrop-blur-sm" href="#espaco">Conhecer o espaço</a>
+<a class="px-8 py-4 border border-accent-gold text-off-white font-button text-button uppercase tracking-widest hover:bg-accent-gold/20 transition-colors w-full sm:w-auto text-center backdrop-blur-sm" href="#tour360">Explorar em 360°</a>
 </div>
+</div>
+</section>
+<!-- Tour Virtual 360 -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-primary text-off-white" id="tour360">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-10">
+<div class="lg:col-span-8">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-accent-gold">Visita virtual</span>
+<h2 class="font-headline-xl text-headline-xl mt-3 mb-4 text-off-white">Conheça o Espaço Marmô em 360°</h2>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-3xl">Caminhe pelos ambientes, observe cada detalhe e imagine o seu evento acontecendo aqui. Arraste a imagem para explorar e use o modo tela cheia para uma experiência completa.</p>
+</div>
+<div class="lg:col-span-4 lg:text-right">
+<a class="inline-flex items-center gap-2 px-6 py-3 border border-accent-gold text-accent-gold font-button text-button uppercase tracking-widest hover:bg-accent-gold hover:text-primary transition-colors" href="https://360exp.com.br/c/espacomarmo/" rel="noopener" target="_blank">
+<span>Abrir tour completo</span>
+<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+</a>
+</div>
+</div>
+<div class="relative overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30">
+<iframe allow="accelerometer; autoplay; fullscreen; gyroscope; xr-spatial-tracking" allowfullscreen class="tour-frame" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://360exp.com.br/c/espacomarmo/" title="Tour virtual 360 graus do Espaço Marmô"></iframe>
+</div>
+<p class="mt-4 text-sm text-surface-variant">Em alguns celulares, o navegador pode solicitar permissão para usar os sensores de movimento.</p>
 </div>
 </section>
 <!-- 2. Presentation Section -->
