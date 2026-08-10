@@ -5,6 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Espaço Marmô - Celebrações que ficam para sempre</title>
 <meta name="description" content="Espaço para casamentos, festas e eventos corporativos em Lomba Grande, Novo Hamburgo. Natureza, elegância e estrutura para até 500 convidados."/>
+<link href="logo-marmo.png" rel="icon" type="image/png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -181,6 +182,26 @@
         body { scroll-behavior: smooth; }
         .glass-nav { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .site-topnav { max-width: none; }
+        .brand-logo {
+          display: block;
+          width: 138px;
+          height: 58px;
+          object-fit: contain;
+          mix-blend-mode: multiply;
+        }
+        .brand-logo-mobile { width: 112px; height: 52px; }
+        .brand-logo-footer { width: 178px; height: auto; }
+        .desktop-nav-link {
+          color: #1b1c19;
+          border-bottom: 1px solid transparent;
+          padding-bottom: 4px;
+          transition: color .25s ease, border-color .25s ease;
+        }
+        .desktop-nav-link:hover,
+        .desktop-nav-link.is-active {
+          color: #C5A059;
+          border-bottom-color: #C5A059;
+        }
         .masonry-grid { column-count: 1; column-gap: 32px; }
         @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
         @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
@@ -208,15 +229,15 @@
 <body class="bg-background text-on-surface antialiased font-body-md overflow-x-hidden selection:bg-accent-gold selection:text-white">
 <!-- TopNavBar -->
 <nav class="site-topnav hidden md:flex fixed top-0 left-0 w-full z-[100] justify-between items-center px-margin-desktop py-unit bg-transparent dark:bg-transparent backdrop-blur-md transition-colors duration-300">
-<a class="font-headline-lg text-headline-lg text-primary dark:text-off-white italic z-10 relative" href="#inicio">Espaço Marmô</a>
+<a aria-label="Espaço Marmô - início" class="z-10 relative" href="#inicio"><img alt="Marmô Espaço para Eventos" class="brand-logo" src="logo-marmo.png"/></a>
 <div class="flex items-center space-x-8 z-10 relative">
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-accent-gold font-bold border-b border-accent-gold pb-1 transition-all duration-300 ease-in-out hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#inicio">Início</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface dark:text-off-white hover:text-accent-gold transition-colors hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#espaco">O Espaço</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface dark:text-off-white hover:text-accent-gold transition-colors hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#estrutura">Estrutura</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface dark:text-off-white hover:text-accent-gold transition-colors hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#eventos">Eventos</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface dark:text-off-white hover:text-accent-gold transition-colors hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#galeria">Galeria</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface dark:text-off-white hover:text-accent-gold transition-colors hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#localizacao">Localização</a>
-<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface dark:text-off-white hover:text-accent-gold transition-colors hover:text-accent-gold dark:hover:text-tertiary-fixed-dim" href="#contato">Contato</a>
+<a class="desktop-nav-link is-active font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#inicio">Início</a>
+<a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#espaco">O Espaço</a>
+<a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#estrutura">Estrutura</a>
+<a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#eventos">Eventos</a>
+<a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#galeria">Galeria</a>
+<a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#localizacao">Localização</a>
+<a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#contato">Contato</a>
 </div>
 <a class="hidden lg:inline-flex px-6 py-3 border border-accent-gold text-accent-gold font-button text-button uppercase tracking-widest hover:bg-accent-gold hover:text-white transition-colors duration-300 z-10 relative" href="#contato">Agendar uma visita</a>
 <div class="absolute inset-0 bg-background/80 dark:bg-primary/80 z-0"></div>
@@ -224,7 +245,7 @@
 <!-- TopNavBar (Mobile) -->
 <nav class="fixed top-0 left-0 w-full z-[100] md:hidden bg-off-white/95 backdrop-blur-md border-b border-warm-beige/70">
 <div class="h-[68px] px-5 flex items-center justify-between">
-<a class="font-headline-lg text-2xl italic leading-none text-primary" href="#inicio">Espaço Marmô</a>
+<a aria-label="Espaço Marmô - início" href="#inicio"><img alt="Marmô Espaço para Eventos" class="brand-logo brand-logo-mobile" src="logo-marmo.png"/></a>
 <details class="relative">
 <summary aria-label="Abrir menu" class="list-none cursor-pointer w-11 h-11 flex items-center justify-center border border-warm-beige text-primary">
 <span class="material-symbols-outlined">menu</span>
@@ -558,7 +579,7 @@
 <!-- Footer -->
 <footer class="w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface-container dark:bg-primary border-t border-warm-beige dark:border-outline-variant relative">
 <div class="md:col-span-1">
-<span class="font-headline-xl text-headline-xl text-primary dark:text-accent-gold italic">Espaço Marmô</span>
+<img alt="Marmô Espaço para Eventos" class="brand-logo brand-logo-footer" loading="lazy" src="logo-marmo.png"/>
 <p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mt-4 opacity-80 hover:opacity-100 transition-opacity">© 2026 Espaço Marmô. Todos os direitos reservados.</p>
 </div>
 <div class="md:col-span-3 flex flex-wrap gap-8 justify-end items-end h-full">
@@ -593,6 +614,37 @@ document.querySelectorAll('nav details a').forEach(function (link) {
   link.addEventListener('click', function () {
     const menu = link.closest('details');
     if (menu) menu.open = false;
+  });
+});
+
+const desktopNavLinks = Array.from(document.querySelectorAll('.desktop-nav-link'));
+const observedSections = desktopNavLinks
+  .map(function (link) { return document.querySelector(link.getAttribute('href')); })
+  .filter(Boolean);
+
+function activateMenuItem(sectionId) {
+  desktopNavLinks.forEach(function (link) {
+    const active = link.getAttribute('href') === '#' + sectionId;
+    link.classList.toggle('is-active', active);
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}
+
+const sectionObserver = new IntersectionObserver(function (entries) {
+  const visible = entries
+    .filter(function (entry) { return entry.isIntersecting; })
+    .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+  if (visible.length) activateMenuItem(visible[0].target.id);
+}, {
+  rootMargin: '-18% 0px -62% 0px',
+  threshold: [0, 0.1, 0.25, 0.5]
+});
+
+observedSections.forEach(function (section) { sectionObserver.observe(section); });
+desktopNavLinks.forEach(function (link) {
+  link.addEventListener('click', function () {
+    activateMenuItem(link.getAttribute('href').slice(1));
   });
 });
 </script>
