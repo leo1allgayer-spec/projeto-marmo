@@ -496,56 +496,76 @@
 <section class="py-section-gap bg-surface px-margin-mobile md:px-margin-desktop" id="galeria">
 <div class="max-w-container-max mx-auto mb-12 flex justify-between items-end">
 <h2 class="font-headline-xl text-headline-xl text-primary">Galeria de Inspirações</h2>
-<a class="hidden md:flex items-center space-x-2 text-accent-gold hover:text-coffee-deep transition-colors font-label-lg text-label-lg uppercase tracking-widest" href="#galeria">
-<span>Ver mais no Instagram</span>
+<button class="hidden md:flex items-center space-x-2 text-accent-gold hover:text-coffee-deep transition-colors font-label-lg text-label-lg uppercase tracking-widest" id="open-event-gallery" type="button">
+<span>Ver mais fotos</span>
 <span class="material-symbols-outlined">arrow_forward</span>
-</a>
+</button>
 </div>
 <div class="max-w-container-max mx-auto masonry-grid">
 <!-- Salão -->
-<div class="masonry-item relative group overflow-hidden">
+<div class="masonry-item gallery-trigger relative group overflow-hidden cursor-zoom-in" role="button" tabindex="0" data-gallery-index="0" aria-label="Ampliar foto: O Salão">
 <img alt="Ambientação principal do salão" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="02-ambientacao-principal.jpeg"/>
 <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 <span class="text-white font-label-lg tracking-widest uppercase border border-white px-4 py-2">O Salão</span>
 </div>
 </div>
 <!-- 15 anos / Celebração -->
-<div class="masonry-item relative group overflow-hidden">
+<div class="masonry-item gallery-trigger relative group overflow-hidden cursor-zoom-in" role="button" tabindex="0" data-gallery-index="1" aria-label="Ampliar foto: Celebração">
 <img alt="Painel e pista de dança" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="04-painel-e-pista.jpeg"/>
 <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 <span class="text-white font-label-lg tracking-widest uppercase border border-white px-4 py-2">Celebração</span>
 </div>
 </div>
 <!-- Ambientação -->
-<div class="masonry-item relative group overflow-hidden">
+<div class="masonry-item gallery-trigger relative group overflow-hidden cursor-zoom-in" role="button" tabindex="0" data-gallery-index="2" aria-label="Ampliar foto: Ambientação">
 <img alt="Ambientação com mesas decoradas no salão" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="05-mesas-e-salao.jpeg"/>
 <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 <span class="text-white font-label-lg tracking-widest uppercase border border-white px-4 py-2">Ambientação</span>
 </div>
 </div>
 <!-- Gastronomia -->
-<div class="masonry-item relative group overflow-hidden">
+<div class="masonry-item gallery-trigger relative group overflow-hidden cursor-zoom-in" role="button" tabindex="0" data-gallery-index="3" aria-label="Ampliar foto: Gastronomia">
 <img alt="Mesa gastronômica preparada para o evento" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="07-gastronomia-vertical.jpeg"/>
 <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 <span class="text-white font-label-lg tracking-widest uppercase border border-white px-4 py-2">Gastronomia</span>
 </div>
 </div>
 <!-- Salão 2 -->
-<div class="masonry-item relative group overflow-hidden">
+<div class="masonry-item gallery-trigger relative group overflow-hidden cursor-zoom-in" role="button" tabindex="0" data-gallery-index="4" aria-label="Ampliar foto: Detalhes">
 <img alt="Mesa gastronômica do evento" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="08-gastronomia-horizontal.jpeg"/>
 <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 <span class="text-white font-label-lg tracking-widest uppercase border border-white px-4 py-2">Detalhes</span>
 </div>
 </div>
 <!-- 15 anos / Celebração 2 -->
-<div class="masonry-item relative group overflow-hidden">
+<div class="masonry-item gallery-trigger relative group overflow-hidden cursor-zoom-in" role="button" tabindex="0" data-gallery-index="5" aria-label="Ampliar foto: Momentos">
 <img alt="Comemoração de 15 anos" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="09-festa-15-anos.jpeg"/>
 <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 <span class="text-white font-label-lg tracking-widest uppercase border border-white px-4 py-2">Momentos</span>
 </div>
 </div>
 </div>
+<div class="max-w-container-max mx-auto mt-8 text-center md:hidden">
+<button class="inline-flex items-center gap-2 border border-accent-gold px-6 py-3 text-accent-gold font-label-lg text-label-lg uppercase tracking-widest" id="open-event-gallery-mobile" type="button">
+<span>Ver mais fotos</span><span class="material-symbols-outlined" aria-hidden="true">photo_library</span>
+</button>
+</div>
 </section>
+<div class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 p-3 md:p-8" id="event-gallery-modal" role="dialog" aria-modal="true" aria-label="Galeria de fotos dos eventos">
+<button class="absolute right-4 top-4 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white hover:bg-accent-gold hover:text-primary transition-colors" id="close-event-gallery" type="button" aria-label="Fechar galeria">
+<span class="material-symbols-outlined text-3xl" aria-hidden="true">close</span>
+</button>
+<button class="absolute left-3 md:left-8 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white hover:bg-accent-gold hover:text-primary transition-colors" id="previous-event-photo" type="button" aria-label="Foto anterior">
+<span class="material-symbols-outlined text-3xl" aria-hidden="true">chevron_left</span>
+</button>
+<figure class="flex h-full w-full max-w-6xl flex-col items-center justify-center gap-4">
+<img class="max-h-[82vh] max-w-full object-contain" id="event-gallery-image" src="" alt=""/>
+<figcaption class="text-center font-body-md text-body-md text-white" id="event-gallery-caption"></figcaption>
+</figure>
+<button class="absolute right-3 md:right-8 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white hover:bg-accent-gold hover:text-primary transition-colors" id="next-event-photo" type="button" aria-label="Próxima foto">
+<span class="material-symbols-outlined text-3xl" aria-hidden="true">chevron_right</span>
+</button>
+</div>
 <!-- 6. Visit CTA (Immersive) -->
 <section class="relative py-32 md:py-48 flex items-center justify-center text-center px-margin-mobile">
 <div class="absolute inset-0 z-0">
@@ -668,6 +688,81 @@ document.getElementById('orcamento-form').addEventListener('submit', function (e
   ].join('\n');
   window.open('https://wa.me/5551993878999?text=' + encodeURIComponent(text), '_blank', 'noopener');
 });
+
+const eventPhotos = [
+  { src: '02-ambientacao-principal.jpeg', caption: 'Ambientação principal do salão' },
+  { src: '04-painel-e-pista.jpeg', caption: 'Painel e pista de dança para celebração' },
+  { src: '05-mesas-e-salao.jpeg', caption: 'Mesas decoradas no salão' },
+  { src: '07-gastronomia-vertical.jpeg', caption: 'Mesa gastronômica preparada para o evento' },
+  { src: '08-gastronomia-horizontal.jpeg', caption: 'Detalhes da gastronomia' },
+  { src: '09-festa-15-anos.jpeg', caption: 'Comemoração de 15 anos' },
+  { src: '19-bar-drinks.jpeg', caption: 'Bar de drinks personalizado' },
+  { src: '20-area-externa-recepcao.jpeg', caption: 'Recepção na área externa' },
+  { src: '21-cerimonia-jardim-ampla.jpeg', caption: 'Cerimônia integrada ao jardim' },
+  { src: '22-pista-painel.jpeg', caption: 'Estrutura de pista e painel' },
+  { src: '23-doces-decoracao.jpeg', caption: 'Mesa de doces e flores' },
+  { src: '24-cenario-tropical.jpeg', caption: 'Cenário tropical para casamento' },
+  { src: '25-salao-casamento.jpeg', caption: 'Salão preparado para receber os convidados' },
+  { src: '26-cerimonia-ao-ar-livre.jpeg', caption: 'Cerimônia ao ar livre' },
+  { src: '27-mesa-tropical.jpeg', caption: 'Mesa principal com decoração tropical' }
+];
+const galleryModal = document.getElementById('event-gallery-modal');
+const galleryImage = document.getElementById('event-gallery-image');
+const galleryCaption = document.getElementById('event-gallery-caption');
+let currentEventPhoto = 0;
+let galleryReturnFocus = null;
+
+function showEventPhoto(index) {
+  currentEventPhoto = (index + eventPhotos.length) % eventPhotos.length;
+  const photo = eventPhotos[currentEventPhoto];
+  galleryImage.src = photo.src;
+  galleryImage.alt = photo.caption;
+  galleryCaption.textContent = (currentEventPhoto + 1) + ' de ' + eventPhotos.length + ' — ' + photo.caption;
+}
+
+function openEventGallery(index, trigger) {
+  galleryReturnFocus = trigger || document.activeElement;
+  showEventPhoto(index || 0);
+  galleryModal.classList.remove('hidden');
+  galleryModal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('close-event-gallery').focus();
+}
+
+function closeEventGallery() {
+  galleryModal.classList.add('hidden');
+  galleryModal.classList.remove('flex');
+  document.body.style.overflow = '';
+  if (galleryReturnFocus) galleryReturnFocus.focus();
+}
+
+document.querySelectorAll('.gallery-trigger').forEach(function (item) {
+  const open = function () { openEventGallery(Number(item.dataset.galleryIndex), item); };
+  item.addEventListener('click', open);
+  item.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      open();
+    }
+  });
+});
+['open-event-gallery', 'open-event-gallery-mobile'].forEach(function (id) {
+  const button = document.getElementById(id);
+  if (button) button.addEventListener('click', function () { openEventGallery(0, button); });
+});
+document.getElementById('close-event-gallery').addEventListener('click', closeEventGallery);
+document.getElementById('previous-event-photo').addEventListener('click', function () { showEventPhoto(currentEventPhoto - 1); });
+document.getElementById('next-event-photo').addEventListener('click', function () { showEventPhoto(currentEventPhoto + 1); });
+galleryModal.addEventListener('click', function (event) {
+  if (event.target === galleryModal) closeEventGallery();
+});
+document.addEventListener('keydown', function (event) {
+  if (galleryModal.classList.contains('hidden')) return;
+  if (event.key === 'Escape') closeEventGallery();
+  if (event.key === 'ArrowLeft') showEventPhoto(currentEventPhoto - 1);
+  if (event.key === 'ArrowRight') showEventPhoto(currentEventPhoto + 1);
+});
+
 document.querySelectorAll('nav details a').forEach(function (link) {
   link.addEventListener('click', function () {
     const menu = link.closest('details');
