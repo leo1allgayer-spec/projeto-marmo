@@ -9,11 +9,23 @@
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta http-equiv="x-ua-compatible" content="IE=edge"/>
 		<meta name="robots" content="noindex, nofollow"/>
-		<style>html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #120c0a; }</style>
+		<style>html, body, #tour-viewer { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #120c0a; } #tour-start { position: fixed; width: 1px; height: 1px; opacity: 0; pointer-events: none; }</style>
 	</head>
 	<body>
-		<script id="360exp_script" _360exp_site360 type="text/javascript">
+		<div id="tour-viewer" aria-label="Tour virtual 360 graus"></div>
+		<button id="tour-start" type="button" _360exp_site360="id:tour-viewer|model:null" aria-label="Iniciar tour virtual">Iniciar tour</button>
+		<script id="360exp_script" type="text/javascript">
 			(async()=>{window._360exp_config_='https://config.360exp.com.br/';window._360exp_path_='https://s4.360exp.com.br/';window._360exp_sis_='https://system.360exp.com.br/';fetch(window._360exp_sis_+"source/v1.0.2/_360exp_init_.js").then(r=>r.text()).then(f=>{Function(f)();new Promise(async p=>{p(new TextDecoder().decode(window._360exp_init_(new Uint8Array(await fetch(window._360exp_sis_+"source/v1.0.2/360exp_v1.0.2.min.data").then(r=>r.arrayBuffer())))))}).then(s=>Function(s.slice(0,s.indexOf(new TextDecoder().decode(new Uint8Array([40,34,38,42])))-7))({a:s.slice(s.indexOf(new TextDecoder().decode(new Uint8Array([40,34,38,42])))-7,s.indexOf(new TextDecoder().decode(new Uint8Array([107,114,112,58]))))},s.slice(s.indexOf(new TextDecoder().decode(new Uint8Array([107,114,112,58]))))))});document.getElementById("360exp_script").remove()})();
 		</script>
-	</body>
+		<script>
+			const tourStart = document.getElementById('tour-start');
+			let tourAttempts = 0;
+			const tourLauncher = setInterval(() => {
+				if (document.getElementById('_360exp_container') || tourAttempts++ >= 40) {
+					clearInterval(tourLauncher);
+					return;
+				}
+				tourStart.click();
+			}, 250);
+		</script>	</body>
 </html>
