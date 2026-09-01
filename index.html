@@ -360,10 +360,10 @@
 <p class="font-body-lg text-body-lg text-surface-variant max-w-3xl">Caminhe pelos ambientes, observe cada detalhe e imagine o seu evento acontecendo aqui. Arraste a imagem para explorar e use o modo tela cheia para uma experiência completa.</p>
 </div>
 <div class="lg:col-span-4 lg:text-right">
-<a class="inline-flex items-center gap-2 px-6 py-3 border border-accent-gold text-accent-gold font-button text-button uppercase tracking-widest hover:bg-accent-gold hover:text-primary transition-colors" href="visita-virtual-testes/page.html" id="tour-fullscreen-link" rel="noopener" target="_blank">
+<button class="inline-flex items-center gap-2 px-6 py-3 border border-accent-gold text-accent-gold font-button text-button uppercase tracking-widest hover:bg-accent-gold hover:text-primary transition-colors" id="tour-fullscreen-button" type="button">
 <span>Abrir em tela cheia</span>
-<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
-</a>
+<span class="material-symbols-outlined" aria-hidden="true">fullscreen</span>
+</button>
 </div>
 </div>
 <div class="flex flex-wrap gap-3 mb-4" role="tablist" aria-label="Escolha uma visita virtual">
@@ -755,7 +755,7 @@ document.getElementById('orcamento-form').addEventListener('submit', function (e
 });
 
 const tourButtons = Array.from(document.querySelectorAll('.tour-selector'));
-const tourFullscreenLink = document.getElementById('tour-fullscreen-link');
+const tourFullscreenButton = document.getElementById('tour-fullscreen-button');
 tourButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     tourButtons.forEach(function (item) {
@@ -763,8 +763,13 @@ tourButtons.forEach(function (button) {
       item.classList.toggle('is-active', active);
       item.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    tourFullscreenLink.href = button.dataset.tourSrc;
   });
+});
+
+tourFullscreenButton.addEventListener('click', function () {
+  const tourElement = document.getElementById('_360exp_container') || document.getElementById('tour-viewer');
+  if (tourElement.requestFullscreen) tourElement.requestFullscreen();
+  else if (tourElement.webkitRequestFullscreen) tourElement.webkitRequestFullscreen();
 });
 
 let tourLaunchAttempts = 0;
