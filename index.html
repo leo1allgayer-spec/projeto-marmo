@@ -367,13 +367,16 @@
 </div>
 </div>
 <div class="flex flex-wrap gap-3 mb-4" role="tablist" aria-label="Escolha uma visita virtual">
-<button class="tour-selector is-active" type="button" role="tab" aria-selected="true" data-tour-src="visita-virtual-testes/page.html" data-tour-title="Visita virtual geral do Espaço Marmô">Visita geral</button>
-<button class="tour-selector" type="button" role="tab" aria-selected="false" data-tour-src="visita-virtual-testes/page_casamento.html" data-tour-title="Visita virtual do Espaço Marmô preparado para casamento">Casamento</button>
-<button class="tour-selector" type="button" role="tab" aria-selected="false" data-tour-src="visita-virtual-testes/page_15_anos.html" data-tour-title="Visita virtual do Espaço Marmô preparado para festa de 15 anos">Festa de 15 anos</button>
+<button class="tour-selector btn-tour is-active" type="button" role="tab" aria-selected="true" _360exp_site360="id:tour-viewer|model:menu_reduzido" data-tour-src="visita-virtual-testes/page.html" data-tour-title="Visita virtual geral do Espaço Marmô">Visita geral</button>
+<button class="tour-selector btn-tour" type="button" role="tab" aria-selected="false" _360exp_site360="id:tour-viewer|model:casamento" data-tour-src="visita-virtual-testes/page_casamento.html" data-tour-title="Visita virtual do Espaço Marmô preparado para casamento">Casamento</button>
+<button class="tour-selector btn-tour" type="button" role="tab" aria-selected="false" _360exp_site360="id:tour-viewer|model:15_anos" data-tour-src="visita-virtual-testes/page_15_anos.html" data-tour-title="Visita virtual do Espaço Marmô preparado para festa de 15 anos">Festa de 15 anos</button>
 </div>
 <div class="tour-frame-wrap overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30">
-<iframe class="tour-frame" id="tour-frame" src="visita-virtual-testes/page.html" title="Visita virtual geral do Espaço Marmô" allow="accelerometer; autoplay; fullscreen; gyroscope" allowfullscreen loading="eager"></iframe>
+<div class="tour-frame" id="tour-viewer" role="region" aria-label="Visita virtual 360 graus do Espaço Marmô"></div>
 </div>
+<script id="360exp_script" type="text/javascript">
+(async()=>{window._360exp_config_='https://config.360exp.com.br/';window._360exp_path_='https://s4.360exp.com.br/';window._360exp_sis_='https://system.360exp.com.br/';fetch(window._360exp_sis_+"source/v1.0.2/_360exp_init_.js").then(r=>r.text()).then(f=>{Function(f)();new Promise(async p=>{p(new TextDecoder().decode(window._360exp_init_(new Uint8Array(await fetch(window._360exp_sis_+"source/v1.0.2/360exp_v1.0.2.min.data").then(r=>r.arrayBuffer())))))}).then(s=>Function(s.slice(0,s.indexOf(new TextDecoder().decode(new Uint8Array([40,34,38,42])))-7))({a:s.slice(s.indexOf(new TextDecoder().decode(new Uint8Array([40,34,38,42])))-7,s.indexOf(new TextDecoder().decode(new Uint8Array([107,114,112,58]))))},s.slice(s.indexOf(new TextDecoder().decode(new Uint8Array([107,114,112,58]))))))});document.getElementById("360exp_script").remove()})();
+</script>
 <p class="mt-4 text-sm text-surface-variant">Em alguns celulares, o navegador pode solicitar permissão para usar os sensores de movimento.</p>
 </div>
 </section>
@@ -751,20 +754,27 @@ document.getElementById('orcamento-form').addEventListener('submit', function (e
   window.open('https://wa.me/5551993878999?text=' + encodeURIComponent(text), '_blank', 'noopener');
 });
 
-const tourFrame = document.getElementById('tour-frame');
+const tourButtons = Array.from(document.querySelectorAll('.tour-selector'));
 const tourFullscreenLink = document.getElementById('tour-fullscreen-link');
-document.querySelectorAll('.tour-selector').forEach(function (button) {
+tourButtons.forEach(function (button) {
   button.addEventListener('click', function () {
-    document.querySelectorAll('.tour-selector').forEach(function (item) {
+    tourButtons.forEach(function (item) {
       const active = item === button;
       item.classList.toggle('is-active', active);
       item.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    tourFrame.src = button.dataset.tourSrc;
-    tourFrame.title = button.dataset.tourTitle;
     tourFullscreenLink.href = button.dataset.tourSrc;
   });
 });
+
+let tourLaunchAttempts = 0;
+const tourAutoLauncher = setInterval(function () {
+  if (document.getElementById('_360exp_container') || tourLaunchAttempts++ >= 40) {
+    clearInterval(tourAutoLauncher);
+    return;
+  }
+  tourButtons[0].click();
+}, 250);
 
 const allEventPhotos = [
   { src: '02-ambientacao-principal.jpeg', caption: 'Ambientação principal do salão', category: 'salao' },
