@@ -366,8 +366,13 @@
 </button>
 </div>
 </div>
+<div class="flex flex-wrap gap-3 mb-4" role="tablist" aria-label="Escolha uma visita virtual">
+<button class="tour-selector is-active" type="button" role="tab" aria-selected="true" data-tour-src="visita-virtual-testes/page.html">Visita geral</button>
+<button class="tour-selector" type="button" role="tab" aria-selected="false" data-tour-src="visita-virtual-testes/page_casamento.html">Casamento</button>
+<button class="tour-selector" type="button" role="tab" aria-selected="false" data-tour-src="visita-virtual-testes/page_15_anos.html">Festa de 15 anos</button>
+</div>
 <div class="tour-frame-wrap overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30">
-<iframe class="tour-frame" id="tour-viewer" src="https://360exp.com.br/c/espacomarmo/" title="Visita virtual 360 graus do Espaço Marmô" loading="lazy" allow="fullscreen; accelerometer; gyroscope" allowfullscreen></iframe>
+<iframe class="tour-frame" id="tour-viewer" src="visita-virtual-testes/page.html" title="Visita virtual 360 graus do Espaço Marmô" loading="lazy" allow="fullscreen; accelerometer; gyroscope" allowfullscreen></iframe>
 </div>
 <p class="mt-4 text-sm text-surface-variant">Em alguns celulares, o navegador pode solicitar permissão para usar os sensores de movimento.</p>
 </div>
@@ -746,7 +751,20 @@ document.getElementById('orcamento-form').addEventListener('submit', function (e
   window.open('https://wa.me/5551993878999?text=' + encodeURIComponent(text), '_blank', 'noopener');
 });
 
+const tourButtons = Array.from(document.querySelectorAll('.tour-selector'));
+const tourViewer = document.getElementById('tour-viewer');
 const tourFullscreenButton = document.getElementById('tour-fullscreen-button');
+
+tourButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    tourButtons.forEach(function (item) {
+      const active = item === button;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    tourViewer.src = button.dataset.tourSrc;
+  });
+});
 tourFullscreenButton.addEventListener('click', function () {
   const tourElement = document.getElementById('tour-viewer');
   if (tourElement.requestFullscreen) tourElement.requestFullscreen();
@@ -913,3 +931,4 @@ desktopNavLinks.forEach(function (link) {
 });
 </script>
 </body></html>
+
