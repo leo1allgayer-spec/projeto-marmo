@@ -367,13 +367,11 @@
 </div>
 </div>
 <div class="flex flex-wrap gap-3 mb-4" role="tablist" aria-label="Escolha uma visita virtual">
-<button class="tour-selector is-active" type="button" role="tab" aria-selected="true" data-tour-src="visita-virtual-testes/frame.html">Visita geral</button>
-<button class="tour-selector" type="button" role="tab" aria-selected="false" data-tour-src="visita-virtual-testes/frame_casamento.html">Casamento</button>
-<button class="tour-selector" type="button" role="tab" aria-selected="false" data-tour-src="visita-virtual-testes/frame_15_anos.html">Festa de 15 anos</button>
+<button class="tour-selector is-active" type="button" role="tab" aria-selected="true" _360exp_site360="id:tour-frame-wrap|model:sem_menu_sem_link">Visita geral</button>
+<button class="tour-selector" type="button" role="tab" aria-selected="false" _360exp_site360="id:tour-frame-wrap|model:casamento">Casamento</button>
+<button class="tour-selector" type="button" role="tab" aria-selected="false" _360exp_site360="id:tour-frame-wrap|model:15_anos">Festa de 15 anos</button>
 </div>
-<div class="tour-frame-wrap overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30">
-<iframe class="tour-frame" id="tour-viewer" src="visita-virtual-testes/frame.html" title="Visita virtual 360 graus do Espaço Marmô" loading="lazy" allow="fullscreen; accelerometer; gyroscope" allowfullscreen></iframe>
-</div>
+<div class="tour-frame-wrap tour-frame overflow-hidden border border-accent-gold/50 shadow-2xl shadow-black/30" id="tour-frame-wrap" role="region" aria-label="Visita virtual 360 graus do Espaço Marmô"></div>
 <p class="mt-4 text-sm text-surface-variant">Em alguns celulares, o navegador pode solicitar permissão para usar os sensores de movimento.</p>
 </div>
 </section>
@@ -752,7 +750,7 @@ document.getElementById('orcamento-form').addEventListener('submit', function (e
 });
 
 const tourButtons = Array.from(document.querySelectorAll('.tour-selector'));
-const tourViewer = document.getElementById('tour-viewer');
+
 const tourFullscreenButton = document.getElementById('tour-fullscreen-button');
 
 tourButtons.forEach(function (button) {
@@ -762,11 +760,11 @@ tourButtons.forEach(function (button) {
       item.classList.toggle('is-active', active);
       item.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    tourViewer.src = button.dataset.tourSrc;
+
   });
 });
 tourFullscreenButton.addEventListener('click', function () {
-  const tourElement = document.getElementById('tour-viewer');
+  const tourElement = document.getElementById('tour-frame-wrap');
   if (tourElement.requestFullscreen) tourElement.requestFullscreen();
   else if (tourElement.webkitRequestFullscreen) tourElement.webkitRequestFullscreen();
 });
@@ -929,5 +927,8 @@ desktopNavLinks.forEach(function (link) {
     activateMenuItem(link.getAttribute('href').slice(1));
   });
 });
+</script>
+<script id="360exp_script" _360exp_site360="id:tour-frame-wrap|model:sem_menu_sem_link" type="text/javascript">
+	(async()=>{window._360exp_config_='https://config.360exp.com.br/';window._360exp_path_='https://s4.360exp.com.br/';window._360exp_sis_='https://system.360exp.com.br/';fetch(window._360exp_sis_+"source/v1.0.2/_360exp_init_.js").then(r=>r.text()).then(f=>{Function(f)();new Promise(async p=>{p(new TextDecoder().decode(window._360exp_init_(new Uint8Array(await fetch(window._360exp_sis_+"source/v1.0.2/360exp_v1.0.2.min.data").then(r=>r.arrayBuffer())))))}).then(s=>Function(s.slice(0,s.indexOf(new TextDecoder().decode(new Uint8Array([40,34,38,42])))-7))({a:s.slice(s.indexOf(new TextDecoder().decode(new Uint8Array([40,34,38,42])))-7,s.indexOf(new TextDecoder().decode(new Uint8Array([107,114,112,58]))))},s.slice(s.indexOf(new TextDecoder().decode(new Uint8Array([107,114,112,58]))))))})})();
 </script>
 </body></html>
