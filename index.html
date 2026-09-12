@@ -5,11 +5,16 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Espaço para Eventos em Novo Hamburgo | Espaço Marmô</title>
 <meta name="description" content="Espaço para casamentos, festas de 15 anos, formaturas e eventos corporativos em Novo Hamburgo. Salão para até 500 convidados em meio à natureza."/>
-<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="format-detection" content="telephone=yes"/>
+<meta name="geo.region" content="BR-RS"/>
+<meta name="geo.placename" content="Novo Hamburgo"/>
 <meta name="author" content="Espaço Marmô"/>
 <meta name="theme-color" content="#271310"/>
 <link rel="canonical" href="https://marmoeventos.com/"/>
 <link rel="alternate" hreflang="pt-BR" href="https://marmoeventos.com/"/>
+<link rel="alternate" hreflang="x-default" href="https://marmoeventos.com/"/>
 <meta property="og:locale" content="pt_BR"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Espaço Marmô"/>
@@ -17,44 +22,80 @@
 <meta property="og:description" content="Casamentos, festas de 15 anos, formaturas e eventos corporativos em um espaço elegante, cercado pela natureza e preparado para até 500 convidados."/>
 <meta property="og:url" content="https://marmoeventos.com/"/>
 <meta property="og:image" content="https://marmoeventos.com/01-hero-salao.jpeg"/>
+<meta property="og:image:secure_url" content="https://marmoeventos.com/01-hero-salao.jpeg"/>
+<meta property="og:image:type" content="image/jpeg"/>
+<meta property="og:image:width" content="1600"/>
+<meta property="og:image:height" content="1066"/>
 <meta property="og:image:alt" content="Salão do Espaço Marmô preparado para uma celebração"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Espaço para Eventos em Novo Hamburgo | Espaço Marmô"/>
 <meta name="twitter:description" content="Um espaço elegante em meio à natureza para casamentos, festas e eventos corporativos em Novo Hamburgo."/>
 <meta name="twitter:image" content="https://marmoeventos.com/01-hero-salao.jpeg"/>
+<meta name="twitter:image:alt" content="Salão do Espaço Marmô preparado para uma celebração"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "EventVenue",
-  "name": "Espaço Marmô",
-  "description": "Espaço para casamentos, festas de 15 anos, formaturas e eventos corporativos em Novo Hamburgo, com capacidade para até 500 convidados.",
-  "url": "https://marmoeventos.com/",
-  "telephone": "+55 51 99387-8999",
-  "email": "contato@espacomarmo.com.br",
-  "image": [
-    "https://marmoeventos.com/01-hero-salao.jpeg",
-    "https://marmoeventos.com/03-visao-geral-salao.jpeg",
-    "https://marmoeventos.com/13-casamento-jardim.jpeg"
-  ],
-  "maximumAttendeeCapacity": 500,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Estrada Rotermund, 3505",
-    "addressLocality": "Novo Hamburgo",
-    "addressRegion": "RS",
-    "postalCode": "93490-700",
-    "addressCountry": "BR"
-  }
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "EventVenue"],
+      "@id": "https://marmoeventos.com/#espaco-marmo",
+      "name": "Espaço Marmô",
+      "alternateName": "Marmô Espaço para Eventos",
+      "description": "Espaço para casamentos, festas de 15 anos, formaturas e eventos corporativos em Novo Hamburgo, com salão para até 500 convidados em meio à natureza.",
+      "url": "https://marmoeventos.com/",
+      "logo": "https://marmoeventos.com/logo-marmo-horizontal.png",
+      "image": ["https://marmoeventos.com/01-hero-salao.jpeg", "https://marmoeventos.com/03-visao-geral-salao.jpeg", "https://marmoeventos.com/13-casamento-jardim.jpeg"],
+      "telephone": "+55 51 99387-8999",
+      "email": "contato@espacomarmo.com.br",
+      "priceRange": "$$$",
+      "maximumAttendeeCapacity": 500,
+      "sameAs": ["https://www.instagram.com/espacomarmo/"],
+      "hasMap": "https://www.google.com/maps/dir/?api=1&destination=Estr.%20Rotermund%2C%203505%20-%20Quilombo%2C%20Novo%20Hamburgo%20-%20RS%2C%2093490-700",
+      "areaServed": [{"@type": "City", "name": "Novo Hamburgo"}, {"@type": "AdministrativeArea", "name": "Vale do Sinos"}],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Estrada Rotermund, 3505 - Quilombo",
+        "addressLocality": "Novo Hamburgo",
+        "addressRegion": "RS",
+        "postalCode": "93490-700",
+        "addressCountry": "BR"
+      },
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Salão de eventos com 625 m²", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Capacidade para até 500 convidados", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Três cenários externos", "value": true}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://marmoeventos.com/#website",
+      "url": "https://marmoeventos.com/",
+      "name": "Espaço Marmô",
+      "inLanguage": "pt-BR",
+      "publisher": {"@id": "https://marmoeventos.com/#espaco-marmo"}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://marmoeventos.com/#webpage",
+      "url": "https://marmoeventos.com/",
+      "name": "Espaço para Eventos em Novo Hamburgo | Espaço Marmô",
+      "description": "Espaço para casamentos, festas de 15 anos, formaturas e eventos corporativos em Novo Hamburgo.",
+      "inLanguage": "pt-BR",
+      "isPartOf": {"@id": "https://marmoeventos.com/#website"},
+      "about": {"@id": "https://marmoeventos.com/#espaco-marmo"},
+      "primaryImageOfPage": {"@type": "ImageObject", "url": "https://marmoeventos.com/01-hero-salao.jpeg", "width": 1600, "height": 1066}
+    }
+  ]
 }
 </script>
-<link href="favicon-marmo.png" rel="icon" sizes="any" type="image/png"/>
+<link href="favicon-marmo.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="favicon-marmo.png" rel="apple-touch-icon"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -293,7 +334,7 @@
 <body class="bg-background text-on-surface antialiased font-body-md overflow-x-hidden selection:bg-accent-gold selection:text-white">
 <!-- TopNavBar -->
 <nav class="site-topnav hidden md:flex fixed top-0 left-0 w-full z-[100] justify-between items-center px-margin-desktop py-unit bg-transparent dark:bg-transparent backdrop-blur-md transition-colors duration-300">
-<a aria-label="Espaço Marmô - início" class="z-10 relative" href="#inicio"><img alt="Marmô Espaço para Eventos" class="brand-logo" src="logo-marmo-horizontal.png"/></a>
+<a aria-label="Espaço Marmô - início" class="z-10 relative" href="#inicio"><img alt="Marmô Espaço para Eventos" class="brand-logo" src="logo-marmo-horizontal.png" width="1000" height="260"/></a>
 <div class="flex items-center space-x-8 z-10 relative">
 <a class="desktop-nav-link is-active font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#inicio">Início</a>
 <a class="desktop-nav-link font-label-lg text-label-lg uppercase tracking-widest font-bold" href="#espaco">O Espaço</a>
@@ -309,7 +350,7 @@
 <!-- TopNavBar (Mobile) -->
 <nav class="fixed top-0 left-0 w-full z-[100] md:hidden bg-background backdrop-blur-md border-b border-warm-beige/70">
 <div class="h-[68px] px-5 flex items-center justify-between">
-<a aria-label="Espaço Marmô - início" href="#inicio"><img alt="Marmô Espaço para Eventos" class="brand-logo brand-logo-mobile" src="logo-marmo-horizontal.png"/></a>
+<a aria-label="Espaço Marmô - início" href="#inicio"><img alt="Marmô Espaço para Eventos" class="brand-logo brand-logo-mobile" src="logo-marmo-horizontal.png" width="1000" height="260"/></a>
 <details class="relative">
 <summary aria-label="Abrir menu" class="list-none cursor-pointer w-11 h-11 flex items-center justify-center border border-warm-beige text-primary">
 <span class="material-symbols-outlined">menu</span>
@@ -334,7 +375,7 @@
 <!-- 1. Hero Section -->
 <section class="mobile-hero relative w-full h-screen min-h-[600px] flex items-center justify-center pt-20 overflow-hidden" id="inicio">
 <div class="absolute inset-0 z-0">
-<img alt="Salão do Espaço Marmô preparado para uma celebração" class="w-full h-full object-cover object-center" src="01-hero-salao.jpeg"/>
+<img alt="Salão do Espaço Marmô preparado para uma celebração" class="w-full h-full object-cover object-center" src="01-hero-salao.jpeg" width="1600" height="1066" fetchpriority="high"/>
 <div class="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-background"></div>
 </div>
 <div class="mobile-hero-content relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center">
@@ -704,11 +745,11 @@
 <div class="mt-12 pt-8 border-t border-warm-beige flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
 <div class="flex items-center space-x-3 text-primary">
 <span class="material-symbols-outlined text-accent-gold">call</span>
-<span class="font-body-md">(51) 99387-8999</span>
+<a class="font-body-md hover:text-accent-gold transition-colors" href="tel:+5551993878999">(51) 99387-8999</a>
 </div>
 <div class="flex items-center space-x-3 text-primary">
 <span class="material-symbols-outlined text-accent-gold">mail</span>
-<span class="font-body-md">contato@espacomarmo.com.br</span>
+<a class="font-body-md hover:text-accent-gold transition-colors" href="mailto:contato@espacomarmo.com.br">contato@espacomarmo.com.br</a>
 </div>
 </div>
 </div>
@@ -717,7 +758,7 @@
 <!-- Footer -->
 <footer class="w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface-container dark:bg-primary border-t border-warm-beige dark:border-outline-variant relative">
 <div class="md:col-span-1">
-<img alt="Marmô Espaço para Eventos" class="brand-logo brand-logo-footer" loading="lazy" src="logo-marmo-horizontal.png"/>
+<img alt="Marmô Espaço para Eventos" class="brand-logo brand-logo-footer" loading="lazy" src="logo-marmo-horizontal.png" width="1000" height="260"/>
 <p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mt-4 opacity-80 hover:opacity-100 transition-opacity">© 2026 Espaço Marmô. Todos os direitos reservados.</p>
 </div>
 <div class="md:col-span-3 flex flex-wrap gap-8 justify-end items-end h-full">
